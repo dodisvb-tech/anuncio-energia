@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anúncio - Atitudes Divertidas</title>
+    <title>Anúncio - Grupo BF</title>
     <style>
         * {
             margin: 0;
@@ -12,7 +12,7 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #f0f0f0;
             display: flex;
             justify-content: center;
@@ -24,47 +24,54 @@
         .anuncio-container {
             width: 210mm;
             height: 297mm;
-            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 50%, #efefef 100%);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 50px rgba(0,0,0,0.2);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 30px;
+            padding: 25px;
         }
 
         .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
+            text-align: center;
+            margin-bottom: 15px;
         }
 
         .logo-grupo {
-            width: 120px;
+            width: 160px;
             height: auto;
+            margin: 0 auto 8px;
         }
 
         .logo-grupo img {
             width: 100%;
             height: auto;
-            filter: brightness(1.1);
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
         }
 
-        .empresa-info {
-            text-align: right;
-            color: white;
+        .grupo-nome {
+            font-size: 26px;
+            font-weight: 900;
+            color: #dc2626;
+            margin-bottom: 4px;
+            letter-spacing: 1px;
         }
 
-        .empresa-nome {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 5px;
+        .empresa-pequeno {
+            font-size: 10px;
+            color: #666;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .powered-by {
-            font-size: 11px;
-            opacity: 0.9;
+        .separator {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #dc2626, transparent);
+            margin: 12px 0;
         }
 
         .main-content {
@@ -72,96 +79,163 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            color: white;
         }
 
-        .titulo {
-            font-size: 52px;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .destaque {
-            color: #fef08a;
-            font-style: italic;
-        }
-
-        .subtitulo {
-            font-size: 20px;
+        .proceso {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
             margin-bottom: 25px;
-            line-height: 1.4;
-            font-weight: 500;
+        }
+
+        .paso {
+            text-align: center;
+            position: relative;
+        }
+
+        .paso::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #dc2626;
+            font-weight: bold;
+        }
+
+        .paso:last-child::after {
+            display: none;
+        }
+
+        .icono {
+            font-size: 48px;
+            margin-bottom: 10px;
+            display: block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .paso:nth-child(2) .icono {
+            animation-delay: 0.2s;
+        }
+
+        .paso:nth-child(3) .icono {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .paso-titulo {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .paso-desc {
+            font-size: 11px;
+            color: #666;
+            line-height: 1.3;
+        }
+
+        .mensagem-principal {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 18px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.2);
+        }
+
+        .mensagem-titulo {
+            font-size: 22px;
+            font-weight: 900;
+            margin-bottom: 6px;
+            line-height: 1.2;
+        }
+
+        .mensagem-desc {
+            font-size: 12px;
             opacity: 0.95;
+            line-height: 1.4;
         }
 
         .beneficios {
             display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 18px;
+            gap: 10px;
         }
 
-        .beneficio-item {
-            background: rgba(255,255,255,0.15);
-            padding: 12px 18px;
-            border-radius: 20px;
-            font-size: 13px;
+        .beneficio {
+            text-align: center;
+            flex: 1;
+        }
+
+        .beneficio-icon {
+            font-size: 28px;
+            margin-bottom: 4px;
+        }
+
+        .beneficio-texto {
+            font-size: 11px;
+            color: #333;
             font-weight: 600;
-            border: 1px solid rgba(255,255,255,0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .diferencial {
-            background: rgba(255,255,255,0.1);
-            border-left: 4px solid #fef08a;
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            font-weight: 500;
+            line-height: 1.3;
         }
 
         .footer-content {
-            background: rgba(0,0,0,0.2);
-            padding: 20px;
+            background: #f0f0f0;
+            padding: 14px;
             border-radius: 10px;
+            border-top: 3px solid #dc2626;
             text-align: center;
         }
 
         .consultor {
-            font-size: 18px;
+            font-size: 15px;
             font-weight: bold;
-            margin-bottom: 10px;
-            color: #fef08a;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .cargo {
+            font-size: 10px;
+            color: #666;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .contato {
             display: flex;
             justify-content: center;
-            gap: 25px;
-            margin-bottom: 12px;
+            gap: 15px;
+            margin-bottom: 6px;
             flex-wrap: wrap;
         }
 
         .contato-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 14px;
+            gap: 5px;
+            font-size: 11px;
+            color: #333;
             font-weight: 600;
         }
 
         .contato-icon {
-            font-size: 18px;
+            font-size: 14px;
         }
 
         .cta {
-            font-size: 12px;
-            opacity: 0.85;
-            margin-top: 10px;
+            font-size: 10px;
+            color: #666;
+            font-weight: 500;
         }
 
         @media (max-width: 800px) {
@@ -172,37 +246,44 @@
                 padding: 20px;
             }
 
-            .titulo {
-                font-size: 36px;
+            .processo {
+                grid-template-columns: 1fr;
+                gap: 10px;
             }
 
-            .subtitulo {
-                font-size: 16px;
+            .paso::after {
+                content: '↓';
+                right: auto;
+                bottom: -12px;
+            }
+
+            .paso:last-child::after {
+                display: none;
             }
         }
 
         .decoracao {
             position: absolute;
-            opacity: 0.05;
+            opacity: 0.03;
             z-index: 0;
         }
 
         .decoracao-1 {
-            width: 300px;
-            height: 300px;
-            background: white;
+            width: 400px;
+            height: 400px;
+            background: #dc2626;
             border-radius: 50%;
-            top: -100px;
-            right: -100px;
+            top: -150px;
+            right: -150px;
         }
 
         .decoracao-2 {
-            width: 250px;
-            height: 250px;
-            background: white;
+            width: 300px;
+            height: 300px;
+            background: #dc2626;
             border-radius: 50%;
-            bottom: -80px;
-            left: -80px;
+            bottom: -100px;
+            left: -100px;
         }
 
         .content-wrapper {
@@ -221,36 +302,54 @@
                 <div class="logo-grupo">
                     <img src="https://bfgrupo.com/images/logo.png" alt="Grupo BF" onerror="this.style.display='none'">
                 </div>
-                <div class="empresa-info">
-                    <div class="empresa-nome">Atitudes Divertidas</div>
-                    <div class="powered-by">Powered by Grupo BF</div>
-                </div>
+                <div class="grupo-nome">GRUPO BF</div>
+                <div class="empresa-pequeno">Atitudes Divertidas</div>
+                <div class="separator"></div>
             </div>
 
             <div class="main-content">
-                <div class="titulo">
-                    Você merece <span class="destaque">pagar menos</span>
+                <div class="proceso">
+                    <div class="paso">
+                        <span class="icono">📋</span>
+                        <div class="paso-titulo">Analisamos</div>
+                        <div class="paso-desc">Suas últimas faturas</div>
+                    </div>
+                    <div class="paso">
+                        <span class="icono">🤝</span>
+                        <div class="paso-titulo">Negociamos</div>
+                        <div class="paso-desc">Melhores preços</div>
+                    </div>
+                    <div class="paso">
+                        <span class="icono">💰</span>
+                        <div class="paso-titulo">Você Economiza</div>
+                        <div class="paso-desc">Sem custos</div>
+                    </div>
                 </div>
 
-                <div class="subtitulo">
-                    Melhores tarifas de energia e gás, sem nenhum custo para você!
+                <div class="mensagem-principal">
+                    <div class="mensagem-titulo">Melhores Tarifas Garantidas</div>
+                    <div class="mensagem-desc">Comissão paga pela operadora • Zero custo para você</div>
                 </div>
 
                 <div class="beneficios">
-                    <div class="beneficio-item">💡 Energia reduzida</div>
-                    <div class="beneficio-item">⛽ Gás reduzido</div>
-                    <div class="beneficio-item">✓ Zero custos</div>
-                    <div class="beneficio-item">⚡ Rápido e fácil</div>
-                </div>
-
-                <div class="diferencial">
-                    <strong>🎯 Você negocia os melhores preços!</strong> Nós cuidamos de tudo para garantir as melhores tarifas no mercado. Análise gratuita e sem compromisso.
+                    <div class="beneficio">
+                        <div class="beneficio-icon">⚡</div>
+                        <div class="beneficio-texto">Energia Reduzida</div>
+                    </div>
+                    <div class="beneficio">
+                        <div class="beneficio-icon">⛽</div>
+                        <div class="beneficio-texto">Gás Reduzido</div>
+                    </div>
+                    <div class="beneficio">
+                        <div class="beneficio-icon">✓</div>
+                        <div class="beneficio-texto">100% Seguro</div>
+                    </div>
                 </div>
             </div>
 
             <div class="footer-content">
                 <div class="consultor">Vítor Bento</div>
-                <div style="font-size: 13px; margin-bottom: 10px; opacity: 0.9;">Consultor Comercial</div>
+                <div class="cargo">Consultor Comercial</div>
 
                 <div class="contato">
                     <div class="contato-item">
@@ -264,7 +363,7 @@
                 </div>
 
                 <div class="cta">
-                    Fale connosco hoje e comece a economizar! 🚀
+                    Peça uma análise gratuita hoje! 🚀
                 </div>
             </div>
         </div>
